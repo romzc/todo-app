@@ -1,0 +1,41 @@
+.task__container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.2rem 0 1.2rem 0.5rem;
+    border-bottom: 1px solid var(--light-very-light-grayish-blue);
+}
+
+.task__check-container {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    border: 1px solid var(--light-light-grayish-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.task__check-container img {
+    height: 0.6rem;
+}
+
+.task__container p {
+    flex: 2;
+}
+
+.task__cross-icon {
+    width: 0.8rem;
+}
+
+/* done styles */
+
+.done .task__check-container {
+    background-image: var(--primary-check-background);
+}
+
+.done p {
+    text-decoration: line-through;
+    color: var(--light-light-grayish-blue);
+}
