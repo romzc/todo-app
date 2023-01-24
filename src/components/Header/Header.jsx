@@ -8,7 +8,7 @@ import './header.css'
 const Header = () => {
 
   return (
-    <header className='header__container'>
+    <header className={`header__container `}>
       <Title />
       <SearchBar />
     </header>

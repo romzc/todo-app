@@ -1,7 +1,8 @@
 .taskContainer__container {
-    padding: 0.3rem 1rem;
+    margin: 0.3rem 1rem;
     display: flex;
     flex-direction: column;
+    border-radius: 8px;
     gap: 1rem;
 }
 
@@ -14,4 +15,12 @@
     display: flex;
     gap: 0.8rem;
     justify-content: center;
+}
+
+.taskContainer__container.light {
+    background-color: var(--light-very-light-gray);
+}   
+
+.taskContainer__container.dark {
+    background-color: var(--dark-very-dark-desaturated-blue);
 }

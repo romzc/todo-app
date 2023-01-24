@@ -17,8 +17,10 @@ const TaskContainer = () => {
     key={item.id}
   />)
 
+  const cTheme = (theme === 'light') ? 'light' : 'dark'
+
   return (
-    <main className='taskContainer__container'>
+    <main className={`taskContainer__container ${cTheme}`}>
         <div className='taskContainer__main'>
             { taskList }
             <div className='taskContainer__main-info'>
