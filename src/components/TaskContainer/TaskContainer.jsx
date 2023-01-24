@@ -1,41 +1,17 @@
 import React from 'react'
+import { TodoContext } from '../../context/TodoContext'
 import Task from './Task'
 
 import './taskContainer.css'
 
 
-const tasks = [
-  {
-    id: 1,
-    done: false,
-    description: "Jog around the park"
-  },
-  {
-    id: 2,
-    done: false,
-    description: "Pick up groceries"
-  },
-  {
-    id: 3,
-    done: false,
-    description: "Read for 1 hour"
-  },
-  {
-    id: 4,
-    done: false,
-    description: "10 minutos medititation"
-  },
-  {
-    id: 5,
-    done: true,
-    description: "Complete online javascript course"
-  }
-]
+
 
 const TaskContainer = () => {
 
+  const {todoList, theme} = React.useContext(TodoContext)
 
-  const taskList = tasks.map(item => <Task 
+  const taskList = todoList.map(item => <Task 
     description={item.description}
     done={item.done}
     key={item.id}

@@ -1,0 +1,12 @@
+.title__container-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.title__container-title h1 {
+    font-size: 1.6rem;
+    color: var(--light-very-light-gray);
+    letter-spacing: 0.5rem;
+}

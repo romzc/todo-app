@@ -1,0 +1,5 @@
+.home__container {
+    background-image: url(../assets/bg-mobile-light.jpg);
+    background-repeat: no-repeat;
+    background-color: var(--light-very-light-gray);
+}

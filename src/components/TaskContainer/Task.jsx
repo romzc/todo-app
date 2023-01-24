@@ -7,7 +7,7 @@ import './task.css'
 
 const Task = ( props ) => {
 
-  const { description, done} = props
+  const { description, done } = props
 
   return (
     <div 
