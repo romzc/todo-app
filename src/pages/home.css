@@ -1,5 +1,28 @@
 .home__container {
+    min-height: 100vh;
+}
+
+.home__container.lightBackground {
     background-image: url(../assets/bg-mobile-light.jpg);
     background-repeat: no-repeat;
     background-color: var(--light-very-light-grayish-blue);
+}
+
+.home__container.darkBackground {
+    background-image: url(../assets/bg-mobile-dark.jpg);
+    background-repeat: no-repeat;
+    background-color: var(--dark-very-dark-grayish-blue-2);
+}
+
+
+@media (min-width: 375px) {
+    .home__container.darkBackground {
+        background-image: url(../assets/bg-desktop-dark.jpg);
+    }
+
+    .home__container.lightBackground {
+        background-image: url(../assets/bg-desktop-light.jpg);
+        background-size: contain;
+    }
+
 }

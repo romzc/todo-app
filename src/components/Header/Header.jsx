@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react'
-import { TodoContext } from '../../context/TodoContext'
+import React from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 import Title from '../Title/Title'
 

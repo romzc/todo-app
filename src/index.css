@@ -12,10 +12,10 @@
     --dark-very-dark-desaturated-blue: hsl(235, 24%, 19%);
     --dark-light-grayish-blue: hsl(234, 39%, 85%);
     /* hover*/
-    --dark-light-grayish-blue: hsl(236, 33%, 92%);
+    --dark-light-grayish-blue-2: hsl(236, 33%, 92%);
     --dark-dark-grayish-blue: hsl(234, 11%, 52%);
     --dark-very-dark-grayish-blue: hsl(233, 14%, 35%);
-    --dark-very-dark-grayish-blue: hsl(237, 14%, 26%);
+    --dark-very-dark-grayish-blue-2: hsl(237, 14%, 26%);
 
 
 }
@@ -26,9 +26,13 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
+body {
+    min-height: 100vh;
+}
 
 #root {
     display: flex;
     flex-direction: column;
     width: 100%;
+    min-height: 100vh;
 }

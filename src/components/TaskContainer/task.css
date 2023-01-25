@@ -6,6 +6,10 @@
     border-bottom: 1px solid var(--light-very-light-grayish-blue);
 }
 
+.dark-container {
+    border-bottom: 1px solid var(--dark-dark-grayish-blue);
+}
+
 .task__check-container {
     width: 1.2rem;
     height: 1.2rem;
@@ -16,17 +20,29 @@
     justify-content: center;
 }
 
+.task__check-container.dark {
+    border: 1px solid var(--dark-dark-grayish-blue);
+}
 
-.task__check-container img {
+
+.task__check-image {
     height: 0.6rem;
+    display: none;
+}
+
+.task__check-image.show {
+    display: block;
 }
 
 .task__container p {
     flex: 2;
+    font-size: 0.8rem;
+    cursor: pointer;
 }
 
 .task__cross-icon {
     width: 0.8rem;
+    cursor: pointer;
 }
 
 /* done styles */
@@ -35,7 +51,26 @@
     background-image: var(--primary-check-background);
 }
 
-.done p {
-    text-decoration: line-through;
-    color: var(--light-light-grayish-blue);
+.dark-font {
+    color: var(--dark-light-grayish-blue-2);
 }
+
+.light-font {
+    color: var(--light-very-dark-grayish-blue);
+}
+
+.done .dark-font {
+    color: var(--dark-dark-grayish-blue);
+    text-decoration: line-through;
+}
+
+.done .light-font {
+    color: var(--light-very-light-grayish-blue);
+    text-decoration: line-through;
+}
+
+.darkIcon {
+    filter: invert(100%) sepia(93%) saturate(437%) hue-rotate(141deg) brightness(160%) contrast(20%);
+}
+
+

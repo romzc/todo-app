@@ -10,3 +10,7 @@
     color: var(--light-very-light-gray);
     letter-spacing: 0.5rem;
 }
+
+.title__container-title img {
+    cursor: pointer;
+}

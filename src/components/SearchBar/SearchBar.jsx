@@ -1,9 +1,11 @@
 import React, {useContext, useState} from 'react'
 import { TodoContext } from '../../context/TodoContext'
 
+import './searchBar.css'
+
 const SearchBar = () => {
 
-    const { addTask } = useContext(TodoContext)
+    const { addTask, theme } = useContext(TodoContext)
     const [task, setTask] = useState('')
   
     const insertNewTask = (event) => {
@@ -16,15 +18,18 @@ const SearchBar = () => {
     const handleChangeTask = (event) => {
       setTask(event.target.value)
     }
-  
 
+    const cTheme = (theme === 'light') ? 'lightSearch' : 'darkSearch'
+  
     return (
-        <div className='search__container'>
-            <span></span>
-            <textarea 
-                value={task}
-                onChange={handleChangeTask}
-                onKeyUp={insertNewTask}
+        <div className={`search__container ${cTheme}`}>
+            <span className={`search__icon ${cTheme}`}></span>
+            <input
+              placeholder='type your task'
+              className={`search__textArea ${cTheme}`}
+              value={task}
+              onChange={handleChangeTask}
+              onKeyUp={insertNewTask}
             />
         </div>
     )

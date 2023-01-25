@@ -1,33 +1,29 @@
 import { createContext, useState } from "react"
-
-const themes = {
-    light: 'light',
-    dark: 'dark'
-}
+import { nanoid } from "nanoid"
 
 const tasks = [
     {
-      id: 1,
+      id: nanoid(),
       done: false,
       description: "Jog around the park"
     },
     {
-      id: 2,
+      id: nanoid(),
       done: false,
       description: "Pick up groceries"
     },
     {
-      id: 3,
+      id: nanoid(),
       done: false,
       description: "Read for 1 hour"
     },
     {
-      id: 4,
+      id: nanoid(),
       done: false,
       description: "10 minutos medititation"
     },
     {
-      id: 5,
+      id: nanoid(),
       done: true,
       description: "Complete online javascript course"
     }
@@ -38,7 +34,8 @@ const TodoContext = createContext()
 const TodoProvider = (props) => {
 
   const [theme, setTheme] = useState('light')
-  const [todoList, setTodoList] = useState(tasks)
+  const [originalList, setOriginalList] = useState(tasks)
+  const [todoList, setTodoList] = useState(originalList)
 
   const changeTheme = () => {
     const auxTheme = (theme === 'light') ? 'dark' : 'light';
@@ -46,17 +43,62 @@ const TodoProvider = (props) => {
   }
 
   const addTask = (newTask) => {
-    newTask = {...newTask, id: todoList.length + 1, done: false}
+    if ( newTask.description.length === 0 ) return
+    
+    newTask = {...newTask, id: nanoid(), done: false}
     setTodoList(prev => [...prev, newTask])
+    setOriginalList(prev => [...prev, newTask])
+  }
+
+  const setActiveTasks = () => {
+    const activeTasks = originalList.filter(item => !item.done)
+    setTodoList(activeTasks)
+  }
+
+  const setCompletedTasks = () => {
+    const completedTasks = originalList.filter(item => item.done)
+    setTodoList(completedTasks)
+  }
+
+  const setAllTask = () => {
+    setTodoList(originalList)
+  }
+
+  const clearCompleted = () => {
+    const activeTasks = originalList.filter(item => !item.done)
+
+    setOriginalList(activeTasks)
+    setTodoList(activeTasks)
+  }
+
+  const deleteById = (id) => {
+    const saveTasks = originalList.filter(item => item.id != id )
+    setOriginalList(saveTasks)
+    setTodoList(saveTasks)
+  }
+
+  const checkById = (id) => {
+    const checkOriginal = originalList.map(item => {
+      return item.id === id ? {...item, done: true} : item
+    })
+    
+    setOriginalList(checkOriginal)
+    setTodoList(checkOriginal)
   }
 
   return (
     <TodoContext.Provider
       value={{
         theme,
-        changeTheme,
         todoList,
-        addTask
+        changeTheme,
+        addTask,
+        setActiveTasks,
+        setCompletedTasks,
+        setAllTask,
+        clearCompleted,
+        deleteById,
+        checkById
       }}
     >
       {props.children}

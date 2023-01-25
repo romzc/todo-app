@@ -7,19 +7,38 @@ import './task.css'
 
 const Task = ( props ) => {
 
-  const { description, done } = props
+  const { 
+    description,
+    done,
+    theme,
+    deleteById,
+    checkById
+  } = props
+
+  const fontTheme = ( theme === 'light' ) ? 'light-font' : 'dark-font'
+  const contDone = done ? 'task__container done': 'task__container'
+  
 
   return (
     <div 
-      className={ done ? 'task__container done': 'task__container'}
+      className={`${contDone} ${theme === 'dark' && 'dark-container' }`}
     >
-      <span className='task__check-container'>
-        <img src={checkIcon} alt="check" />
+      <span 
+        className={`task__check-container ${theme === 'dark' && 'dark'}`}
+        onClick={checkById}
+      >
+        <img 
+          className={`task__check-image ${done && 'show' }`} 
+          src={checkIcon} 
+          alt="check" 
+        />
       </span>
 
-      <p>{description}</p>
+      <p onClick={checkById} className={fontTheme}>{description}</p>
 
-      <img className='task__cross-icon' 
+      <img
+        onClick={deleteById}
+        className={`task__cross-icon ${theme === 'dark' && 'darkIcon'}`}
         src={crosIcon}
         alt="cross" 
       />
