@@ -84,6 +84,11 @@
     background-color: var(--light-very-light-gray);
 }
 
+.active {
+    color: var(--primary-bright-blue);
+    font-weight: 600;
+}
+
 @media (min-width:500px) {
     .mobile {
         display: none;

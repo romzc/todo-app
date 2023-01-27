@@ -25,7 +25,7 @@ const SearchBar = () => {
         <div className={`search__container ${cTheme}`}>
             <span className={`search__icon ${cTheme}`}></span>
             <input
-              placeholder='type your task'
+              placeholder='type your task, then enter'
               className={`search__textArea ${cTheme}`}
               value={task}
               onChange={handleChangeTask}

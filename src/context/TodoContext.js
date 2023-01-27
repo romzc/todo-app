@@ -63,7 +63,8 @@ const TodoProvider = (props) => {
   }
 
   const addTask = (newTask) => {
-    if ( newTask.description.length < 0 ) return
+    if ( !newTask.description ) return;
+
 
     newTask = {...newTask, id: nanoid(), done: false}
     setTodoList(prev => [...prev, newTask])

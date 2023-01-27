@@ -17,7 +17,8 @@ const TaskContainer = () => {
     checkById,
     changeToAll,
     changeToActive,
-    changeToCompleted
+    changeToCompleted,
+    stateList
   } = React.useContext(TodoContext)
 
   const taskList = todoList.map(item => <Task 
@@ -47,18 +48,18 @@ const TaskContainer = () => {
                 <span>{activeTask} items left</span>
 
                 <div className={`taskContainer__options desktop`}>
-                  <span   onClick={changeToAll}>All</span>
-                  <span onClick={changeToActive}>Active</span>
-                  <span onClick={changeToCompleted}>Completed</span>
+                  <span className={`${stateList.all ? 'active': ''}`}  onClick={changeToAll}>All</span>
+                  <span className={`${stateList.active ? 'active': ''}`}  onClick={changeToActive}>Active</span>
+                  <span className={`${stateList.completed ? 'active': ''}`}  onClick={changeToCompleted}>Completed</span>
                 </div>
 
                 <span onClick={clearCompleted}>Clear Completed</span>
             </div>
         </div>
         <div className={`taskContainer__options mobile ${cTheme} ${themeFont}`}>
-            <span onClick={changeToAll}>All</span>
-            <span onClick={changeToActive}>Active</span>
-            <span onClick={changeToCompleted}>Completed</span>
+            <span className={`${stateList.all ? 'active': ''}`} onClick={changeToAll}>All</span>
+            <span className={`${stateList.active ? 'active': ''}`} onClick={changeToActive}>Active</span>
+            <span className={`${stateList.completed ? 'active': ''}`} onClick={changeToCompleted}>Completed</span>
         </div>
 
     </main>

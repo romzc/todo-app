@@ -18,6 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .task__check-container.dark {
@@ -46,6 +47,10 @@
 }
 
 /* done styles */
+
+.done .task__check-container{
+    pointer-events: none;
+}
 
 .done .task__check-container {
     background-image: var(--primary-check-background);

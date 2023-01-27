@@ -22,7 +22,10 @@
 
     .home__container.lightBackground {
         background-image: url(../assets/bg-desktop-light.jpg);
-        background-size: contain;
+    }
+
+    .home__container {
+        padding-bottom: 1rem;
     }
 
 }
