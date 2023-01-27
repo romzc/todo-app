@@ -12,12 +12,12 @@ const TaskContainer = () => {
   const {
     theme,
     todoList,
-    setActiveTasks,
-    setCompletedTasks,
-    setAllTask,
     clearCompleted,
     deleteById,
-    checkById
+    checkById,
+    changeToAll,
+    changeToActive,
+    changeToCompleted
   } = React.useContext(TodoContext)
 
   const taskList = todoList.map(item => <Task 
@@ -47,18 +47,18 @@ const TaskContainer = () => {
                 <span>{activeTask} items left</span>
 
                 <div className={`taskContainer__options desktop`}>
-                  <span onClick={setAllTask}>All</span>
-                  <span onClick={setActiveTasks}>Active</span>
-                  <span onClick={setCompletedTasks}>Completed</span>
+                  <span   onClick={changeToAll}>All</span>
+                  <span onClick={changeToActive}>Active</span>
+                  <span onClick={changeToCompleted}>Completed</span>
                 </div>
 
                 <span onClick={clearCompleted}>Clear Completed</span>
             </div>
         </div>
         <div className={`taskContainer__options mobile ${cTheme} ${themeFont}`}>
-            <span onClick={setAllTask}>All</span>
-            <span onClick={setActiveTasks}>Active</span>
-            <span onClick={setCompletedTasks}>Completed</span>
+            <span onClick={changeToAll}>All</span>
+            <span onClick={changeToActive}>Active</span>
+            <span onClick={changeToCompleted}>Completed</span>
         </div>
 
     </main>

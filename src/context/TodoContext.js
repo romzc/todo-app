@@ -33,18 +33,38 @@ const TodoContext = createContext()
 
 const TodoProvider = (props) => {
 
-  const [theme, setTheme] = useState('light')
-  const [originalList, setOriginalList] = useState(tasks)
-  const [todoList, setTodoList] = useState(originalList)
+  const [theme, setTheme] = useState('light');
+  const [originalList, setOriginalList] = useState(tasks);
+  const [todoList, setTodoList] = useState(originalList);
+  const [stateList, setStateList] = useState({all: true, active: false, completed: false});
+
+
+  /**
+   * change state of list to all.
+   */
+  const changeToAll = () => {
+    setStateList({ active: false, completed: false, all: true});
+    setAllTask();
+  }
+
+  const changeToActive = () => {
+    setStateList({ active: true, completed: false, all: false});
+    setActiveTasks();
+  }
+
+  const changeToCompleted = () => {
+    setStateList({ active: false, completed: true, all: false});
+    setCompletedTasks();
+  }
 
   const changeTheme = () => {
     const auxTheme = (theme === 'light') ? 'dark' : 'light';
-    setTheme(auxTheme)  
+    setTheme(auxTheme);
   }
 
   const addTask = (newTask) => {
-    if ( newTask.description.length === 0 ) return
-    
+    if ( newTask.description.length < 0 ) return
+
     newTask = {...newTask, id: nanoid(), done: false}
     setTodoList(prev => [...prev, newTask])
     setOriginalList(prev => [...prev, newTask])
@@ -66,13 +86,13 @@ const TodoProvider = (props) => {
 
   const clearCompleted = () => {
     const activeTasks = originalList.filter(item => !item.done)
-
     setOriginalList(activeTasks)
     setTodoList(activeTasks)
   }
 
   const deleteById = (id) => {
     const saveTasks = originalList.filter(item => item.id != id )
+
     setOriginalList(saveTasks)
     setTodoList(saveTasks)
   }
@@ -91,14 +111,15 @@ const TodoProvider = (props) => {
       value={{
         theme,
         todoList,
+        stateList,
         changeTheme,
         addTask,
-        setActiveTasks,
-        setCompletedTasks,
-        setAllTask,
         clearCompleted,
         deleteById,
-        checkById
+        checkById,
+        changeToAll,
+        changeToActive,
+        changeToCompleted
       }}
     >
       {props.children}

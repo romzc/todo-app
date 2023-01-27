@@ -34,7 +34,7 @@ const Task = ( props ) => {
         />
       </span>
 
-      <p onClick={checkById} className={fontTheme}>{description}</p>
+      <p className={fontTheme}>{description}</p>
 
       <img
         onClick={deleteById}
