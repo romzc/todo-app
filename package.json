@@ -4,7 +4,8 @@
   "description": "todo app for frontend mentor challenge",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack serve --mode development --config webpack.config.js"
+    "dev": "webpack serve --mode development --config webpack.config.js",
+    "build": "webpack --mode production --config webpack.config.js"
   },
   "keywords": [
     "React",
